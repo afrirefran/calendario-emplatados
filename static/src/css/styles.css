@@ -1,0 +1,44 @@
+#custom_area {
+    width: 400px; /* Ajusta el ancho del área personalizada */
+    height: 300px; /* Ajusta la altura del área personalizada */
+    background-color: #f0f0f0; /* Color de fondo */
+    position: absolute; /* Posición absoluta */
+    top: 400px; /* Ajusta la distancia desde arriba */
+    right: 50px; /* Ajusta la distancia desde la derecha */
+    padding: 0px; /* Espacio interior */
+    overflow: auto; /* Habilita el desplazamiento si el contenido es más grande */
+    z-index: 1000; /* Valor alto para asegurarse de que esté encima de otros elementos */
+}
+
+.ui-datepicker {
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    width: 100%; /* Ajusta el ancho del datepicker */
+    height: 100%; /* Ajusta la altura del datepicker */
+}
+
+.ui-datepicker table {
+    width: 300px; /* Ajusta el ancho de la tabla del datepicker */
+    height: 250px;
+}
+
+.ui-datepicker-header {
+    padding: 0.2em 0; /* Ajusta el padding del header del datepicker */
+}
+
+.ui-datepicker-title {
+    font-size: 1.2em; /* Ajusta el tamaño de la fuente del título */
+}
+
+.ui-datepicker .holiday a {
+    background-color: red !important;
+    color: white !important;
+}
+
+.ui-datepicker .workday a {
+    background-color: green !important;
+    color: white !important;
+}
+
+
+
+

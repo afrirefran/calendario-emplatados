@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--definicion de recursos-->
+        <!--plantilla para incluir recursos adicionales como css y js
+        dentro del xpath se establece DONDE se insertan los recursos adicionales
+        link y script enlazan css y js externos y estáticos del modulo-->
+        <template id="assets_backend" name="calendario_emplatados assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+                <link rel="stylesheet" type="text/css" href="/calendarioEmplatados/static/src/css/styles.css"/>
+                <script type="text/javascript" src="/calendarioEmplatados/static/src/js/custom_area.js"></script>
+            </xpath>
+        </template>
+
+        <!--vista formulario-->
+        <!--nueva vista de formulario para calendario.emplatados-->
+        <record id="view_calendario_form" model="ir.ui.view">
+            <field name="name">calendario.emplatados.form</field>
+            <field name="model">calendario.emplatados</field>
+            <!--contiene la definición de la arquitectura/estructura (disposicion visual): es xml. Necesario para interpretar correctamente
+            la estructura de la vista-->
+            <field name="arch" type="xml">
+                <!--estructuran la vista del formulario-->
+                <form string="Calendario Emplatados">
+                    <!--contenedor que organiza el contenido del formulario-->
+                    <sheet>
+                        <!--Agrupa campos para organizarlos visualmente-->
+                        <group>
+                            <field name="name"/>
+                            <field name="selected_dates"/>
+                            <field name="day_set" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="holidays" widget="one2many_list"/>
+                        </group>
+                    </sheet>
+                    <div t-if="context.get('show_custom_area')" id="custom_area"></div>
+                </form>
+            </field>
+        </record>
+
+        <!--menu y accion-->
+        <!--record: define una accion que abre una vista de formulario del modelo calendario.emplatados-->
+        <record id="action_calendario_emplatados" model="ir.actions.act_window">
+            <field name="name">Calendario Emplatados</field>
+            <field name="res_model">calendario.emplatados</field>
+            <field name="view_mode">tree,form</field> <!--especifica que la vista predeterminada es un formulario-->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Crea tu primer calendario
+                </p>
+            </field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem id="menu_calendario_root" name="Calendario Emplatados" sequence="1"/>
+        <menuitem id="menu_calendario_emplatados" name="Calendario" parent="menu_calendario_root" action="action_calendario_emplatados"/>
+    </data>
+</odoo>

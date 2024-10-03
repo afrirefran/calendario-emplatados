@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_calendario_emplatados,access_calendario_emplatados,model_calendario_emplatados,,1,1,1,1
+access_calendario_emplatados_holiday,access_calendario_emplatados_holiday,model_calendario_emplatados_holiday,,1,1,1,1
